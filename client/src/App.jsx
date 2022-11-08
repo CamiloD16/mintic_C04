@@ -2,6 +2,7 @@ import Template from './components/Template'
 import Home from './pags/Home'
 import Login from './pags/Login'
 import PrivateRoute from './utils/PrivateRoutes'
+import { AuthProvider } from './context/AuthContext'
 
 import './tailwind.css'
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+      <AuthProvider>
         <Routes>
           <Route path='/' element={<Template />}>
             <Route path="login" element={<Login />} />
@@ -21,6 +23,7 @@ function App() {
             </Route>
           </Route>
         </Routes>
+        </AuthProvider>
       </Router>
     </div>
   )
