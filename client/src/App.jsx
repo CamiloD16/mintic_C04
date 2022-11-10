@@ -1,6 +1,7 @@
 import Template from './components/Template'
 import Home from './pags/Home'
 import Login from './pags/Login'
+import Categories from './pags/Categories'
 import PrivateRoute from './utils/PrivateRoutes'
 import { AuthProvider } from './context/AuthContext'
 
@@ -10,7 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-gray-100">
       <Router>
       <AuthProvider>
         <Routes>
@@ -19,7 +20,8 @@ function App() {
           </Route>
           <Route element={<PrivateRoute/>}>
             <Route path='/' element={<Template />}>
-              <Route path="home" element={<Home/>} />
+              <Route index element={<Home/>} />
+              <Route path='categories' element={<Categories/>} />
             </Route>
           </Route>
         </Routes>

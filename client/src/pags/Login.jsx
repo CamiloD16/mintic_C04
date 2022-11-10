@@ -2,7 +2,9 @@ import React, {useContext} from 'react'
 import AuthContext from '../context/AuthContext'
 
 const Login = () => {
+
   let {loginUser} = useContext(AuthContext)
+
   return (
     <div className="h-screen flex justify-center items-center">
       <form onSubmit={loginUser} className="max-w-screen-inner shadow-md h-2/3 flex flex-col justify-center gap-y-10 px-4 sm:px-16 py-24">
