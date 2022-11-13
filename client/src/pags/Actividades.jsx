@@ -1,7 +1,7 @@
 import React from 'react'
 import CardActivity from '../components/CardActivity'
 
-const Categories = () => {
+const Actividades = () => {
   return (
     <main className='px-4 pb-4 container mx-auto'>
       <section className='w-fit mx-auto'>
@@ -14,4 +14,4 @@ const Categories = () => {
   )
 }
 
-export default Categories
+export default Actividades

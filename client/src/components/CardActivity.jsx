@@ -1,7 +1,8 @@
 import React from 'react'
-import imgActivity01 from '../assets/activity_01.png'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import GetApis from '../hooks/GetApis';
+
+import { Link } from 'react-router-dom';
 
 const CardActivity = () => {
 
@@ -18,7 +19,9 @@ const CardActivity = () => {
             <h1 className='pt-6 pb-8 font-semibold'>{data.nombre_actividad}</h1>
             <p>{data.descripcion_actividad}</p>
             <div className='flex pt-8 pb-5 gap-5'>
-              <h3 className='font-semibold cursor-pointer'>Ver más detalles</h3>
+              <Link to={`/actividad-${data.id}`}>
+                 <h3 className='font-semibold cursor-pointer'>Ver más detalles</h3>
+              </Link>
               <ArrowForwardIcon/>
             </div>
           </div>

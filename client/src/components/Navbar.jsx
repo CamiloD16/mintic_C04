@@ -21,7 +21,7 @@ const Navbar = () => {
 
       <ul className="sm:flex items-center text-white gap-x-12 hidden ">
         <li> <Link to='/' tittle='button'><HomeIcon/></Link> </li>
-        <li> <Link to='/categories' tittle='button'><HikingIcon/></Link> </li>
+        <li> <Link to='/actividades' tittle='button'><HikingIcon/></Link> </li>
 
         {
         user ? (
