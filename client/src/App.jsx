@@ -6,10 +6,6 @@ import PrivateRoute from './utils/PrivateRoutes'
 import { AuthProvider } from './context/AuthContext'
 import Actividad01 from './pags/actividades/Actividad-1'
 import Actividad02 from './pags/actividades/Actividad-2'
-
-import './tailwind.css'
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Actividad03 from './pags/actividades/Actividad-3'
 import Actividad04 from './pags/actividades/Actividad-4'
 import Actividad05 from './pags/actividades/Actividad-5'
@@ -20,6 +16,10 @@ import Actividad09 from './pags/actividades/Actividad-9'
 import Actividad010 from './pags/actividades/Actividad-10'
 import Actividad011 from './pags/actividades/Actividad-11'
 import Actividad012 from './pags/actividades/Actividad-12'
+
+import './tailwind.css'
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 function App() {

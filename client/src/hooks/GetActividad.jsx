@@ -13,7 +13,7 @@ const GetActividad = props => {
     <>
     {Data.slice((limits.startLimit),(limits.endLimit)).map(data => {
       return(
-      <>
+      <div className="container mx-auto" key={data.id}>
         <Activity
           id={data.id}
           title={data.nombre_actividad}
@@ -21,7 +21,7 @@ const GetActividad = props => {
           image={data.imagen_actividad}
         />
         <Comments/>
-      </>
+      </div>
       )})}
     </>
   )
