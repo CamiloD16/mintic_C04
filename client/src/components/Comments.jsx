@@ -16,23 +16,22 @@ const Comments = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-5">
-
       <h1 className="mb-5 font-semibold text-xl">Comentarios</h1>
       {Data.map(data => {
-        return(
-          <>
-            <h3 className="mb-3 font-semibold capitalize">{data.usuario_comentario}</h3>
-            <p className="mb-5">{data.comentario}</p>
-          </>
-        )
+        if(window.location.href.includes(data.id_comentario)){
+          return(
+            <div key={data.id}>
+              <h3 className="mb-3 font-semibold capitalize" >{data.usuario_comentario}</h3>
+              <p className="mb-5">{data.comentario}</p>
+            </div>
+          )
+        }
       })}
-
-
       <form onSubmit={handleSubmit}>
         <h1 className='opacity-70'>
           {user &&   <p>Hola <span className='capitalize'>{user.username}</span>, ¿Deseas comentar algo? </p>}
         </h1>
-        <input className="mb-5 bg-white w-full p-3 min-h-[100px] outline-none" type="text" name="comment" id="" placeholder="Ingresa un comentario" value={comment.comentario} onChange={handleInputChange} />
+        <textarea className="mb-5 bg-white w-full p-3 min-h-[100px] outline-none" type="text" name="comment" id="" placeholder="Ingresa un comentario" value={comment.comentario} onChange={handleInputChange} />
         <Button
         title="Comentar"
         type="submit"

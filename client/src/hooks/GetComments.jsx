@@ -16,6 +16,7 @@ const GetComments = (url) =>{
       body: JSON.stringify({
         "comentario": String(newComment.comment),
         "usuario_comentario": String(user.username),
+        "id_comentario":   String(window.location.href.slice(-12)),
       })
     })
   }
