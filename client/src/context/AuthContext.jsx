@@ -8,12 +8,37 @@ export default AuthContext;
 
 export const AuthProvider = ({children}) => {
 
-  let [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
-  let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
+  const [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
+  const [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
+
+  const url = "http://127.0.0.1:8000/api/user/user/?format=json"
+
+
 
   const navigate = useNavigate()
 
-  let loginUser = async ( e )=> {
+  const registerUser = async ( e ) => {
+
+    e.preventDefault()
+    console.log(setAuthTokens(e.target.password.value))
+    const responseRegister  = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({'username':e.target.username.value, 'password':e.target.password.value})
+    })
+
+    if(responseRegister.status==201){
+      alert("Registrado correctamente")
+    }else if(responseRegister.status==401){
+      alert("Ya hay un usuario con ese nombre")
+    }else{
+      alert('Algo salió mal')
+    }
+  }
+
+  const loginUser = async ( e )=> {
     e.preventDefault()
     let response = await fetch('http://127.0.0.1:8000/api/token/', {
       method:'POST',
@@ -24,7 +49,7 @@ export const AuthProvider = ({children}) => {
       body:JSON.stringify({'username':e.target.username.value, 'password':e.target.password.value})
     })
 
-    let data = await response.json()
+    const data = await response.json()
 
     if(response.status === 200){
       setAuthTokens(data)
@@ -36,14 +61,14 @@ export const AuthProvider = ({children}) => {
     }
   }
 
-  let logoutUser = () => {
+  const logoutUser = () => {
     setAuthTokens(null)
     setUser(null)
     localStorage.removeItem('authTokens')
     navigate('/login')
   }
 
-  let updateToken = async () => {
+  const updateToken = async () => {
 
     let response = await fetch('http://127.0.0.1:8000/api/token/refresh/', {
       method:'POST',
@@ -53,7 +78,7 @@ export const AuthProvider = ({children}) => {
       body:JSON.stringify({'refresh':authTokens?.refresh})
     })
 
-    let data = await response.json()
+    const data = await response.json()
 
     if (response.status === 200){
       setAuthTokens(data)
@@ -67,9 +92,9 @@ export const AuthProvider = ({children}) => {
   useEffect(()=> {
 
     /* Max active time where the user is not ussing the App. sec to min */
-    let timeActive = 1000 * 60 * 10
+    const timeActive = 1000 * 60 * 10
 
-    let interval =  setInterval(()=> {
+    const interval =  setInterval(()=> {
       if(authTokens){
         updateToken()
       }
@@ -79,10 +104,11 @@ export const AuthProvider = ({children}) => {
 }, [authTokens])
 
 
-  let contextData = {
+  const contextData = {
     user:user,
     loginUser:loginUser,
     logoutUser:logoutUser,
+    registerUser:registerUser,
   }
 
   return(

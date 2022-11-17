@@ -20,6 +20,7 @@ import Actividad012 from './pags/actividades/Actividad-12'
 import './tailwind.css'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from './pags/Register'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Template />}>
             <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
           </Route>
           <Route element={<PrivateRoute/>}>
             <Route path='/' element={<Template />}>

@@ -2,7 +2,7 @@ import{ useState, useContext } from 'react'
 import AuthContext from '../context/AuthContext'
 
 const GetComments = (url) =>{
-  const initialState = {id:0,comentario:"",usuario:""}
+  const initialState = {id:0,comentario:"",usuario_comentario:""}
   const [comment, setComment] = useState(initialState)
 
   let { user } = useContext(AuthContext)

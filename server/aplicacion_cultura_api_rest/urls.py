@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from actividades.views import MyTokenObtainPairView
 from django.urls import include
-
+from rest_framework_simplejwt.views import TokenVerifyView
 
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
@@ -29,4 +29,5 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path("api/actividades/", include("actividades.urls")),
     path("api/comentarios/", include("actividades.urls")),
+    path("api/user/", include("actividades.urls")),
 ]
