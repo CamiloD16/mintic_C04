@@ -1,4 +1,4 @@
-import GetActividad from '../../hooks/GetActividad'
+import { ConsumActivity } from '../../components/Activity'
 
 
 const Actividad09 = () => {
@@ -7,7 +7,7 @@ const Actividad09 = () => {
     endLimit : 9
   }
   return(
-    <GetActividad
+    <ConsumActivity
       limits={limits}
     />
   )
