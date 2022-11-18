@@ -23,6 +23,7 @@ const GetComments = (url) =>{
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try{
       const res = await registerComment(comment)
       const data = await res.json()
@@ -30,7 +31,8 @@ const GetComments = (url) =>{
     }catch(error){
       console.log(error)
     }
-    window.location.reload(false);
+
+    (!user ? alert("No has iniciado sesión") : window.location.reload(false))
   }
 
   const handleInputChange=(e)=>{

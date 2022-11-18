@@ -13,8 +13,6 @@ export const AuthProvider = ({children}) => {
 
   const url = "http://127.0.0.1:8000/api/user/user/?format=json"
 
-
-
   const navigate = useNavigate()
 
   const registerUser = async ( e ) => {

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class ActividadesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Actividades
-        fields = ("id", "nombre_actividad","descripcion_actividad", "imagen_actividad","precio_actividad")
+        fields = ("id", "nombre_actividad","descripcion_actividad", "imagen_actividad","precio_actividad","categoria_actividad")
 
 class ComentariosSerializer(serializers.ModelSerializer):
     class Meta:

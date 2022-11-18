@@ -32,10 +32,12 @@ const Comments = () => {
           {user &&   <p>Hola <span className='capitalize'>{user.username}</span>, ¿Deseas comentar algo? </p>}
         </h1>
         <textarea className="mb-5 bg-white w-full p-3 min-h-[100px] outline-none" type="text" name="comment" id="" placeholder="Ingresa un comentario" value={comment.comentario} onChange={handleInputChange} />
-        <Button
-        title="Comentar"
-        type="submit"
-        />
+        {(comment.comment) ?
+         <Button
+         title="Comentar"
+         type="submit"
+         /> : <></>
+        }
       </form>
     </div>
   )

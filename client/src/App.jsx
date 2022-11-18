@@ -21,6 +21,7 @@ import './tailwind.css'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from './pags/Register'
+import { Aventura, Deporte, Ejercicios, Recreacion, Tours, Viajes } from './pags/Categoria'
 
 
 function App() {
@@ -33,23 +34,27 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
-          <Route element={<PrivateRoute/>}>
-            <Route path='/' element={<Template />}>
-              <Route index element={<Home/>} />
-              <Route path='actividades' element={<Actividades/>} />
-              <Route path='actividad-1' element={<Actividad01/>} />
-              <Route path='actividad-2' element={<Actividad02/>} />
-              <Route path='actividad-3' element={<Actividad03/>} />
-              <Route path='actividad-4' element={<Actividad04/>} />
-              <Route path='actividad-5' element={<Actividad05/>} />
-              <Route path='actividad-6' element={<Actividad06/>} />
-              <Route path='actividad-7' element={<Actividad07/>} />
-              <Route path='actividad-8' element={<Actividad08/>} />
-              <Route path='actividad-9' element={<Actividad09/>} />
-              <Route path='actividad-10' element={<Actividad010/>} />
-              <Route path='actividad-11' element={<Actividad011/>} />
-              <Route path='actividad-12' element={<Actividad012/>} />
-            </Route>
+          <Route path='/' element={<Template />}>
+            <Route index element={<Home/>} />
+            <Route path='aventura' element={<Aventura/>} />
+            <Route path='deporte' element={<Deporte/>} />
+            <Route path='ejercicios' element={<Ejercicios/>} />
+            <Route path='recreacion' element={<Recreacion/>} />
+            <Route path='tours' element={<Tours/>} />
+            <Route path='viajes' element={<Viajes/>} />
+            <Route path='actividades' element={<Actividades/>} />
+            <Route path='actividad-1' element={<Actividad01/>} />
+            <Route path='actividad-2' element={<Actividad02/>} />
+            <Route path='actividad-3' element={<Actividad03/>} />
+            <Route path='actividad-4' element={<Actividad04/>} />
+            <Route path='actividad-5' element={<Actividad05/>} />
+            <Route path='actividad-6' element={<Actividad06/>} />
+            <Route path='actividad-7' element={<Actividad07/>} />
+            <Route path='actividad-8' element={<Actividad08/>} />
+            <Route path='actividad-9' element={<Actividad09/>} />
+            <Route path='actividad-10' element={<Actividad010/>} />
+            <Route path='actividad-11' element={<Actividad011/>} />
+            <Route path='actividad-12' element={<Actividad012/>} />
           </Route>
         </Routes>
         </AuthProvider>

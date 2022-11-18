@@ -1,5 +1,6 @@
-const DiferentsCategories = () => {
+import { useNavigate } from 'react-router-dom'
 
+const DiferentsCategories = () => {
   return (
     <div className='py-32'>
     <h1 className='text-center text-xl mb-16'>Diferentes categorías para escoger</h1>
@@ -28,8 +29,16 @@ const DiferentsCategories = () => {
 }
 
 export const ItemCategory = (props) => {
+
+  const removeAccents = (str) => {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+  }
+
+  const navigate = useNavigate()
+  const redirection = () => navigate(removeAccents(props.title))
+
   return(
-    <div className='shadow-lg py-6 px-28 rounded-lg w-full cursor-pointer'>{props.title}</div>
+    <button onClick={redirection} className='shadow-lg py-6 px-28 rounded-lg w-full cursor-pointer'>{props.title}</button>
   )
 }
 export default DiferentsCategories

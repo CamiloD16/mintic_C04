@@ -6,6 +6,7 @@ class Actividades(models.Model):
     descripcion_actividad = models.TextField(null=True , blank=True)
     imagen_actividad = models.TextField(null=True , blank=True)
     precio_actividad = models.IntegerField()
+    categoria_actividad = models.TextField(null=True , blank=True)
 
 class Categorias(models.Model):
     nombre = models.CharField(max_length=100,unique=True)
